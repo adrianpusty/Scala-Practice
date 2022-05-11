@@ -68,4 +68,28 @@ class FibonacciTest extends FunSuite with PropertyChecks with Checkers {
       .foreach(tuple => tuple._2 should equal(expected(tuple._1)))
   }
 
+  // auxiliary
+  test("Equal to 1 for 2") {
+    check(Prop.forAll(Gen.const(2)) { input =>
+      val result = Algorithmics.fibonacci(input)
+
+      result.isDefined && (result.get == 1)
+    })
+  }
+
+  test("Equal to 2 for 3") {
+    check(Prop.forAll(Gen.const(3)) { input =>
+      val result = Algorithmics.fibonacci(input)
+
+      result.isDefined && (result.get == 2)
+    })
+  }
+
+  test("Equal to 3 for 4") {
+    check(Prop.forAll(Gen.const(4)) { input =>
+      val result = Algorithmics.fibonacci(input)
+
+      result.isDefined && (result.get == 3)
+    })
+  }
 }

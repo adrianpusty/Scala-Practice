@@ -2,7 +2,7 @@ package prv.zielony.scala.tutorials
 
 import org.junit.runner.RunWith
 import org.scalacheck.{Prop, Gen}
-import org.scalatest.{FunSuite}
+import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.prop.{PropertyChecks, Checkers}
 
@@ -12,13 +12,13 @@ import org.scalatest.prop.{PropertyChecks, Checkers}
 @RunWith(classOf[JUnitRunner])
 class FactorialTest extends FunSuite with PropertyChecks with Checkers{
 
-  val positiveIntGenerator = Gen.choose(1, 1000);
+  val positiveIntGenerator: Gen[Int] = Gen.choose(1, 1000)
 
-  val nonNegativeIntGenerator = Gen.choose(0, 1000);
+  val nonNegativeIntGenerator: Gen[Int] = Gen.choose(0, 1000)
 
-  val negativeIntGenerator = Gen.choose(-1000, -1);
+  val negativeIntGenerator: Gen[Int] = Gen.choose(-1000, -1)
 
-  val zeroGenerator = Gen.const(0)
+  val zeroGenerator: Gen[Int] = Gen.const(0)
 
   test("Defined for nonnegative integers") {
     check(Prop.forAll(nonNegativeIntGenerator) { input =>
@@ -34,7 +34,7 @@ class FactorialTest extends FunSuite with PropertyChecks with Checkers{
 
   test("Equal to 1 for 0") {
     check(Prop.forAll(zeroGenerator) { input =>
-      val result = Algorithmics.factorial(input);
+      val result = Algorithmics.factorial(input)
       result.isDefined && result.get == 1
     })
   }

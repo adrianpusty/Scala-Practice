@@ -30,8 +30,8 @@ class PeselValidatorTest extends FunSuite with PropertyChecks with Checkers {
       digit8 <- digitGenerator
       digit9 <- digitGenerator
       digit10 <- digitGenerator
-  } yield(List(year._1, year._2, month._1, month._2, day._1, day._2,
-      digit7, digit8, digit9, digit10))
+  } yield List(year._1, year._2, month._1, month._2, day._1, day._2,
+      digit7, digit8, digit9, digit10)
 
   val correctPeselGenerator: Gen[List[Int]] = peselBaseGenerator.map(peselBase =>
     peselBase ++ List((10 - digit(linearCombination(peselBase, tenFactors), 1)) % 10)
@@ -41,9 +41,9 @@ class PeselValidatorTest extends FunSuite with PropertyChecks with Checkers {
     peselBase ++ List(9 - digit(linearCombination(peselBase, tenFactors), 1))
   )
 
-  val tooShortPeselGenerator = Gen.choose(0L, Math.pow(10,10).asInstanceOf[Long])
+  val tooShortPeselGenerator: Gen[Long] = Gen.choose(0L, Math.pow(10,10).asInstanceOf[Long])
 
-  val tooLongPeselGenerator = Gen.choose(Math.pow(10, 11).asInstanceOf[Long], Math.pow(10, 12).asInstanceOf[Long])
+  val tooLongPeselGenerator: Gen[Long] = Gen.choose(Math.pow(10, 11).asInstanceOf[Long], Math.pow(10, 12).asInstanceOf[Long])
 
   test("Should accept correct PESEL") {
     check(Prop.forAllNoShrink(correctPeselGenerator) { input =>
@@ -63,17 +63,17 @@ class PeselValidatorTest extends FunSuite with PropertyChecks with Checkers {
 
   implicit class LongFromIntList(digits: List[Int]){
     def asLong: Long = digits.zipWithIndex.map{ case (digit, i) =>
-      digit * Math.pow(10, (digits.length - i - 1)).toLong
+      digit * Math.pow(10, digits.length - i - 1).toLong
     }.foldLeft(0L)((accumulator, x) => accumulator + x)
   }
 
   def digit(i: Long, n: Int): Int = if( i > (10 ^ (n-1)))
-    (( i / Math.pow(10, (n - 1))).toLong % 10).toInt
+    (( i / Math.pow(10, n - 1)).toLong % 10).toInt
   else
     0
 
   def digit(i: Int, n: Int): Int = if( i > (10 ^ (n-1)))
-    (( i / Math.pow(10, (n - 1))).toLong % 10).toInt
+    (( i / Math.pow(10, n - 1)).toLong % 10).toInt
   else
     0
 }
