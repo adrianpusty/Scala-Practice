@@ -11,7 +11,7 @@ object PeselValidator {
     * 1. The number has to have 11 digits
     * 2. The following algorithm should hold:
     *
-    *   We multiply multiply digits respectively:
+    * We multiply digits respectively:
     *   - first by 1
     *   - second by 3
     *   - third by 7
@@ -29,5 +29,28 @@ object PeselValidator {
     *   Otherwise, it isn't.
     */
 
-  def validate(pesel:List[Int]):Boolean = ???
+  val PESEL_LENGTH = 11
+
+  def validate(pesel: List[Int]): Boolean = {
+    if (pesel.length != PESEL_LENGTH) {
+      return false
+    }
+
+    val sum = Range(0, PESEL_LENGTH)
+      .map(index => (index, pesel(index)))
+      .map(tuple => multiplier(tuple._1) * tuple._2)
+      .sum
+
+    sum % 10 == 0
+  }
+
+  def multiplier(index: Int): Int = {
+    index match {
+      case 0 | 4 | 8 | 10 => 1
+      case 1 | 5 | 9 => 3
+      case 2 | 6 => 7
+      case 3 | 7 => 9
+      case _ => throw new RuntimeException("Incorrect index")
+    }
+  }
 }

@@ -12,7 +12,17 @@ object Algorithmics {
     *    - for positive numbers: factorial(n) = n * factorial(n-1)
     */
 
-  def factorial(input:Int):Option[Int] = ???
+  def factorial(input: Int): Option[Int] = {
+    if (input > 0) {
+      for (x <- Option(input); y <- factorial(input - 1)) yield x * y
+    }
+    else if (input == 0) {
+      Option(1)
+    }
+    else {
+      None
+    }
+  }
 
   /**
    * The goal is to implement a function calculating Fibonacci numbers, defined as:
@@ -22,5 +32,19 @@ object Algorithmics {
    *  - for positive numbers: f(n) = f(n-1) + f(n-2)
    */
 
-  def fibonacci(n:Int):Option[Int] = ???
+  def fibonacci(n: Int): Option[Int] = {
+    if (n == 1) {
+      Option(1)
+    }
+    else if (n == 0) {
+      Option(0)
+    }
+    else if (n > 1) {
+      for (x <- fibonacci(n - 1); y <- fibonacci(n - 2)) yield x + y
+      //        (fibonacci(n-1) ++ fibonacci(n-2)).reduceOption(_ + _) // alternatively
+    }
+    else {
+      None
+    }
+  }
 }
