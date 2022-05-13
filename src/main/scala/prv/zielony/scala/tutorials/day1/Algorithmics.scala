@@ -1,8 +1,8 @@
-package prv.zielony.scala.tutorials
+package prv.zielony.scala.tutorials.day1
 
 /**
- * Created by zielony on 01.02.16.
- */
+  * Created by zielony on 01.02.16.
+  */
 object Algorithmics {
 
   /**
@@ -25,12 +25,12 @@ object Algorithmics {
   }
 
   /**
-   * The goal is to implement a function calculating Fibonacci numbers, defined as:
-   *  - for negative numbers: undefined (None)
-   *  - for zero: 0
-   *  - for one: 1
-   *  - for positive numbers: f(n) = f(n-1) + f(n-2)
-   */
+    * The goal is to implement a function calculating Fibonacci numbers, defined as:
+    *  - for negative numbers: undefined (None)
+    *  - for zero: 0
+    *  - for one: 1
+    *  - for positive numbers: f(n) = f(n-1) + f(n-2)
+    */
 
   def fibonacci(n: Int): Option[Int] = {
     if (n == 1) {

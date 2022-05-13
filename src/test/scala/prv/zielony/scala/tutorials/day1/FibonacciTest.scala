@@ -1,4 +1,4 @@
-package prv.zielony.scala.tutorials
+package prv.zielony.scala.tutorials.day1
 
 import org.junit.runner.RunWith
 import org.scalacheck.{Gen, Prop}

@@ -1,8 +1,8 @@
-package prv.zielony.scala.tutorials
+package prv.zielony.scala.tutorials.day1
 
 /**
- * Created by zielony on 02.02.16.
- */
+  * Created by zielony on 02.02.16.
+  */
 object PeselValidator {
 
   /**
@@ -23,10 +23,10 @@ object PeselValidator {
     *   - ninth by 1
     *   - tenth by 3
     *   - eleventh by 1
-    *   where the first digit is the one on the left-hand side as the number is written, i.e. for
-    *   1234 the first digit is 1 and the fourth is 4.
-    *   Next, we sum all the results. If the final result is divisible by 10, the PESEL number is correct.
-    *   Otherwise, it isn't.
+    *     where the first digit is the one on the left-hand side as the number is written, i.e. for
+    *     1234 the first digit is 1 and the fourth is 4.
+    *     Next, we sum all the results. If the final result is divisible by 10, the PESEL number is correct.
+    *     Otherwise, it isn't.
     */
 
   val PESEL_LENGTH = 11

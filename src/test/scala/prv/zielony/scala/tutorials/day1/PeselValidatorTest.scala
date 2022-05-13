@@ -1,7 +1,7 @@
-package prv.zielony.scala.tutorials
+package prv.zielony.scala.tutorials.day1
 
 import org.junit.runner.RunWith
-import org.scalacheck.{Prop, Gen}
+import org.scalacheck.{Gen, Prop}
 import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.prop.{Checkers, PropertyChecks}
