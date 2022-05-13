@@ -37,8 +37,7 @@ object PeselValidator {
     }
 
     val sum = Range(0, PESEL_LENGTH)
-      .map(index => (index, pesel(index)))
-      .map(tuple => multiplier(tuple._1) * tuple._2)
+      .map(index => multiplier(index) * pesel(index))
       .sum
 
     sum % 10 == 0
