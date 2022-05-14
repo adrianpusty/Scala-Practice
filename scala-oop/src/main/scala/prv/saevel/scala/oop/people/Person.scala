@@ -1,13 +1,12 @@
 package main.scala.prv.saevel.scala.oop.people
 
-import prv.saevel.scala.oop.persistence.PrimaryKey
+import main.scala.prv.saevel.scala.oop.persistence.PrimaryKey
 
 import scala.util.Random
 
-class Person extends PrimaryKey[Long] {
-  override val id: Long = ???
-}
+class Person private(override val id: Long, val name: String) extends PrimaryKey[Long] {}
 
-object Person {
-  def apply(name: String, surname: String): Person = ???
+object Person
+{
+  def apply(name: String, surname: String): Person = new Person(Random.nextLong, name)
 }
