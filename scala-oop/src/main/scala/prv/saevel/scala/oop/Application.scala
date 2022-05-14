@@ -1,11 +1,11 @@
 package main.scala.prv.saevel.scala.oop
 
-import prv.saevel.scala.oop.cars.Car
-import prv.saevel.scala.oop.people.Person
+import main.scala.prv.saevel.scala.oop.cars.Car
+import main.scala.prv.saevel.scala.oop.people.Person
 
 object Application {
 
-  import prv.saevel.scala.oop.Context._
+  import main.scala.prv.saevel.scala.oop.Context._
 
   def main(args: Array[String]): Unit = {
 
@@ -57,9 +57,7 @@ object Application {
     }
   }
 
-  // TODO: Uncomment when ready
-  private def printCar(car: Car): Unit = ???
-  //  println("Car[id = " + car.id + ", model = " + car.model + ", brand = " + car.brand + ", owner = " + car.owner + "]")
+  private def printCar(car: Car): Unit = println("Car[id = " + car.id + ", model = " + car.model + ", brand = " + car.brand + ", owner = " + car.owner + "]")
 
   private def readAndSaveCar = {
     println("Specify brand: ")
@@ -82,9 +80,7 @@ object Application {
     }
   }
 
-  // TODO: Uncomment when ready
-  private def printPerson(person: Person): Unit = ???
-  //  println("Person[id = " + person.id + ", name = " + person.name + ", surname =" + person.surname + "]")
+  private def printPerson(person: Person): Unit = println("Person[id = " + person.id + ", name = " + person.name + ", surname =" + person.surname + "]")
 
 
   private def readAndSavePerson = {
