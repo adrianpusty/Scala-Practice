@@ -1,9 +1,9 @@
 package main.scala.prv.saevel.scala.oop.cars
 
-import prv.saevel.scala.oop.people.{Person, PersonRepository}
+import main.scala.prv.saevel.scala.oop.people.{Person, PersonRepository}
 
-class RentalService(implicit carRepository: CarRepository, personRepository: PersonRepository) {
-
+class RentalService(implicit carRepository: CarRepository, personRepository: PersonRepository)
+{
   def rentalPossible(carId: Long, personId: Long): Boolean = {
     val carOption = carRepository.findById(carId)
     val personOption = personRepository.findById(personId)

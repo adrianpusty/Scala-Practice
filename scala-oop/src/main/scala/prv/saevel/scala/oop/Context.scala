@@ -1,14 +1,13 @@
 package main.scala.prv.saevel.scala.oop
 
-import prv.saevel.scala.oop.cars.{Car, CarRepository, InMemoryCarRepository, RentalService}
-import prv.saevel.scala.oop.people.{InMemoryPersonRepository, Person, PersonRepository}
-import prv.saevel.scala.oop.persistence.Repository
+import main.scala.prv.saevel.scala.oop.cars.{CarRepository, InMemoryCarRepository, RentalService}
+import main.scala.prv.saevel.scala.oop.people.{InMemoryPersonRepository, PersonRepository}
 
-object Context {
+object Context
+{
+  implicit val carRepository: CarRepository = InMemoryCarRepository
 
-  implicit val carRepository: CarRepository = ???
+  implicit val personRepository: PersonRepository = InMemoryPersonRepository
 
-  implicit val personRepository: PersonRepository = ???
-
-  implicit val rentalService = new RentalService
+  implicit val rentalService: RentalService = new RentalService
 }
