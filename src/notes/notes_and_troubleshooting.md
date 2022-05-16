@@ -31,5 +31,7 @@ private[some.package.a.b.c]
 ### [Package Scope](https://alvinalexander.com/scala/how-to-control-scala-method-scope-object-private-package/)
 To make a method available to all members of the current package — what would be called “package scope” in Java — mark the method as being private to the current package with the private[packageName] syntax.
 
+## implicit parameters
+def draw(text: String)(implicit color: Color, by: DrawingDevice) ~https://www.baeldung.com/scala/implicit-parameters
 
 
