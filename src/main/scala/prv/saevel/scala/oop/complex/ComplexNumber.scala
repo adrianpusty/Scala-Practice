@@ -2,7 +2,10 @@ package prv.saevel.scala.oop.complex
 
 class ComplexNumber(val real: Double, val imaginary: Double)
 {
+  val modulus: Double = mod(this)
   override def toString = s"ComplexNumber($real, $imaginary)"
+
+  def mod(t: ComplexNumber): Double = Math.sqrt(t.real * t.real + t.imaginary * t.imaginary)
 }
 
 object ComplexNumber {
